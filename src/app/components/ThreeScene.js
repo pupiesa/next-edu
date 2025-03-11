@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, memo } from "react";
 import * as THREE from "three";
 
 const ThreeScene = () => {
@@ -9,7 +9,7 @@ const ThreeScene = () => {
     if (typeof window !== "undefined") {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(
-        75,
+        75, // fov
         window.innerWidth / window.innerHeight,
         0.1,
         1000
@@ -56,4 +56,4 @@ const ThreeScene = () => {
   return <div ref={containerRef}></div>;
 };
 
-export default ThreeScene;
+export default memo(ThreeScene);
